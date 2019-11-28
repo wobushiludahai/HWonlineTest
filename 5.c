@@ -12,6 +12,8 @@ unsigned long long test = 0;
 int testsize = 0, testtemp;
 char chartemp;
 
+
+
 int main(void)
 {
     while(gets(testbuf))
