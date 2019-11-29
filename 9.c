@@ -15,6 +15,7 @@ int testbuf[10] = {0};
 int main(void)
 {
     scanf("%d", &test);
+    
 
     while(test)
     {
