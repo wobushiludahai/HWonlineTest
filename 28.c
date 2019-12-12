@@ -57,6 +57,7 @@ int main(void)
 {
     while(scanf("%d", &testnum) != EOF)
     {
+        //≥ı ºªØ
         max=0;
         EvenNum = 0;
         OddNum = 0;
@@ -83,15 +84,13 @@ int main(void)
                     Odd2Even[i][j] = 1;
             }
 
-    for (i = 0; i < OddNum; i++)
-    {
-        memset(visited, 0, sizeof(visited));
-        if (dfs(i))
-            max++;
-    }
-    printf("%d\n", max);
-
-
+        for (i = 0; i < OddNum; i++)
+        {
+            memset(visited, 0, sizeof(visited));
+            if (dfs(i))
+                max++;
+        }
+        printf("%d\n", max);
     }
 
     return 0;
