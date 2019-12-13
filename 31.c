@@ -1,6 +1,6 @@
 
 /**
- * @description: a template for test
+ * @description: 单词倒排
  * @param {type} 
  * @return: 
  */
@@ -46,8 +46,6 @@ int main(void)
             }
         }
     }
-
-
 
     return 0;
 }
