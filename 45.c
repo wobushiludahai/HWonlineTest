@@ -10,11 +10,12 @@
 #include <math.h>
 
 int testnum;
-char testbuf[100] = {0};
-int countbuf[100] = {0};
+char testbuf[100000] = {0};
+int countbuf[100000] = {0};
 int tempbuf[26] = {0};
 int testlen;
 int testresult;
+int fuzhu;
 
 int main(void)
 {
@@ -23,20 +24,21 @@ int main(void)
         for(int i = 0; i < testnum; i++)
         {
             scanf("%s", testbuf);
-            memset(tempbuf, 0, 26);
-            memset(countbuf, 0, 100);
+            memset(tempbuf, 0, sizeof(tempbuf));
+            memset(countbuf, 0, sizeof(countbuf));
             testlen = strlen(testbuf);
             testresult = 0;
+            fuzhu = 26;
             
             for(int j = 0; j < testlen; j++)
             {
                 if((testbuf[j] >= 'a')&&(testbuf[j] <= 'z'))
                 {
-                    tempbuf[testbuf[i] - 'a']++;
+                    tempbuf[testbuf[j] - 'a']++;
                 }
                 else
                 {
-                    tempbuf[testbuf[i] - 'A']++;
+                    tempbuf[testbuf[j] - 'A']++;
                 }
             }
 
@@ -47,6 +49,19 @@ int main(void)
                     countbuf[tempbuf[j]]++;
                 }
             }
+
+            for(int j = 99999; j >= 0; j--)
+            {
+                if(countbuf[j]!=0)
+                {
+                    for(int k = 0; k < countbuf[j]; k++)
+                    {
+                        testresult += (j * fuzhu);
+                        fuzhu--;
+                    }
+                }
+            }
+            printf("%d\n", testresult);
         }
     }
 
