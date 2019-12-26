@@ -1,6 +1,6 @@
 
 /**
- * @description: a template for test
+ * @description: 线性插值
  * @param {type} 
  * @return: 
  */
