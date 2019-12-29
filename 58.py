@@ -1,5 +1,5 @@
 '''
-@description: 
+@description: 输入n个整数，输出其中最小的K个
 @param {type} 
 @return: 
 '''
