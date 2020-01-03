@@ -1,5 +1,5 @@
 '''
-@description: 
+@description: 计算日期到天数转换
 @param {type} 
 @return: 
 '''
