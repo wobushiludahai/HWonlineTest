@@ -16,7 +16,7 @@ int fun(int sum,int num[],int i,int n)
         return sum==0;
     }
     else
-    {
+    {   //需要好好理解此处思路
         return(fun(sum+num[i],num,i+1,n)||fun(sum-num[i],num,i+1,n));
     }
           
