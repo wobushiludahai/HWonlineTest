@@ -10,61 +10,44 @@
 #include <math.h>
 
 int testnum;
-int testbuf[1000];
-int fuzhu[1000];
+int testbuf[1010];
+int fuzhu[1010];
 int max;
-
-int cmp(const void *a, const void *b)
-{
-    return (*(int *)a - *(int *)b);
-}
+int temp;
 
 int main(void)
 {
     while(scanf("%d", &testnum) != EOF)
     {
-        for(int i = 0; i < testnum; i++)
+        for(int i = 1; i <= testnum; i++)
         {
             scanf("%d", &testbuf[i]);
         }
+		fuzhu[1] = 1;
 
-        memcpy(fuzhu, testbuf, sizeof(testbuf));
-        qsort(fuzhu, testnum, sizeof(int), cmp);
-        max = 0;
-
-        for(int i = 0; i < testnum; i++)
-        {
-            for(int j = 0; j < testnum; j++)
-            {
-                if(testbuf[i] == fuzhu[j])
+		for(int i = 2;i <= testnum;i ++)
+		{
+			temp = 0;
+			for(int k = 1;k < i;k ++)
+			{
+				if(testbuf[k] < testbuf[i] && temp < fuzhu[k])
                 {
-                    int temp = fuzhu[j];
-                    int count = 0;
-                    for(int k = j+1; k < testnum; k++)
-                    {
-                        if(fuzhu[k] != temp)
-                        {
-                            temp == fuzhu[k];
-                            for(int q = i + 1; q < testnum; q++)
-                            {
-                                if(testbuf[q] == fuzhu[k])
-                                {
-                                    count++;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-
-                    if(count > max)
-                    {
-                        max = count;
-                    }
+					temp = fuzhu[k];                    
                 }
-            }
-        }
+			 } 
+			 fuzhu[i] = temp+1;
+		}
 
-        printf("%d\n", max+1);
+		max = 0;
+		for(int i = 1; i <= testnum; i++)
+		{
+			if(fuzhu[i] > max)
+            {
+			    max = fuzhu[i];                
+            }
+		}
+
+		printf("%d\n",max);
     }
 
     return 0;
